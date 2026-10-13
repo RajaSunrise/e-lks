@@ -4,7 +4,7 @@ Panduan ini untuk guru/teknisi. Ada 2 pilihan — **Pilihan A disarankan** (pali
 
 ## Penting dipahami dulu
 
-- **Vercel bisa menampung semuanya sekaligus** (halaman + server + database sementara) lewat `api/index.py` — cocok untuk demo.
+- **Vercel bisa menampung semuanya sekaligus** (halaman + server + database sementara) — Vercel otomatis mendeteksi aplikasi di `app/main.py`, tanpa pengaturan apa pun. Cocok untuk demo.
 - **Untuk arsip permanen penelitian**, jalankan server di komputer sekolah/VPS karena Vercel menghapus isi database setiap deploy ulang.
 
 ## Pilihan A (disarankan): semua di 1 server
@@ -22,7 +22,7 @@ budi-biologi/
 
 ## Pilihan B: fullstack di Vercel (halaman + server jadi satu)
 
-1. **Naikkan kode ke GitHub** (termasuk folder ini, `api/`, `vercel.json`, `requirements.txt`).
+1. **Naikkan kode ke GitHub** (termasuk `app/`, `static/`, `templates/`, `requirements.txt`).
 2. Buka **vercel.com** → Add New → Project → Import repositori ini → Deploy. Tidak perlu diatur apa-apa — halaman utama, halaman E-LKS, `/admin`, dan API langsung tampil (tidak not-found lagi).
 3. **Uji:** buka alamat Vercel → kerjakan 1 E-LKS sampai Hitung Nilai → buka `alamat/admin` → masuk → nilai harus tampil.
 4. Biarkan `window.ELKS_API_BASE = "";` (kosong) di `index.html` — depan dan server sudah satu alamat.
@@ -31,7 +31,7 @@ budi-biologi/
 
 ## Cek bila gagal
 
-- Masih not-found setelah deploy: pastikan file `vercel.json`, `api/index.py`, dan `requirements.txt` ikut ter-upload → Redeploy di dashboard Vercel.
+- Masih not-found setelah deploy: pastikan **Root Directory dikosongkan** (default `./`), folder `app/` ikut ter-upload, lalu → Redeploy di dashboard Vercel. Jangan isi Root Directory dengan `app/` atau `api/`.
 - Not-found di server sendiri: pastikan perintah dijalankan **dari folder proyek** dan file `index.html` ada di `templates/`. Bila tetap hilang, halaman utama kini menampilkan pesan penyebabnya, bukan not-found kosong.
 - Status “Gagal terkirim, periksa internet” (Pilihan B lama dengan server terpisah): alamat server salah / server mati / HP tidak se-jaringan (pakai WiFi yang sama bila server lokal).
 - Halaman admin (`/admin`) selalu dibuka dari **alamat yang sama dengan webnya**.
