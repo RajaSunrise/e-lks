@@ -18,8 +18,9 @@ from starlette.middleware.sessions import SessionMiddleware
 
 BASE = Path(__file__).resolve().parent
 DEPAN = BASE.parent  # folder proyek (berisi index.html)
-DATA_DIR = BASE / "data"
-DATA_DIR.mkdir(exist_ok=True)
+# Di Vercel, folder proyek hanya-baca sehingga database pindah ke /tmp.
+DATA_DIR = Path("/tmp/elks-data") if os.getenv("VERCEL") else BASE / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH = DATA_DIR / "rekap.sqlite"
 
 ADMIN_USER = os.getenv("ADMIN_USER", "admin")

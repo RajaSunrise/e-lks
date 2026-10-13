@@ -17,27 +17,20 @@ Tidak perlu Vercel sama sekali.
 3. Siswa buka `http://alamat-server:8000`, guru buka `http://alamat-server:8000/admin`.
 4. Selesai — nilai otomatis masuk ke `backend/data/rekap.sqlite`.
 
-## Pilihan B: halaman depan di Vercel + server di sekolah
+## Pilihan B: fullstack di Vercel (halaman + server jadi satu)
 
-1. **Naikkan kode ke GitHub** (termasuk folder ini).
-2. Buka **vercel.com** → Add New → Project → Import repositori ini → Deploy. Tidak perlu diatur apa-apa (halaman depan tayang otomatis).
-3. **Nyalakan server** di komputer sekolah seperti Pilihan A langkah 2. Catat alamatnya, mis. `http://192.168.1.10:8000` (atau alamat internet bila server online).
-4. **Sambungkan:** di file `index.html`, cari baris ini lalu isi alamat server:
-```
-<script>window.ELKS_API_BASE = "";</script>
-```
-menjadi (contoh):
-```
-<script>window.ELKS_API_BASE = "http://192.168.1.10:8000";</script>
-```
-5. Simpan → `git push` (Vercel menerbitkan ulang otomatis).
-6. **Uji:** buka web Vercel → kerjakan 1 E-LKS sampai Hitung Nilai → cek `/admin` di server: nilai harus masuk.
+1. **Naikkan kode ke GitHub** (termasuk folder ini, `api/`, `vercel.json`, `requirements.txt`).
+2. Buka **vercel.com** → Add New → Project → Import repositori ini → Deploy. Tidak perlu diatur apa-apa — halaman utama, halaman E-LKS, `/admin`, dan API langsung tampil (tidak not-found lagi).
+3. **Uji:** buka alamat Vercel → kerjakan 1 E-LKS sampai Hitung Nilai → buka `alamat/admin` → masuk → nilai harus tampil.
+4. Biarkan `window.ELKS_API_BASE = "";` (kosong) di `index.html` — depan dan server sudah satu alamat.
 
-## Cek bila gagal (Pilihan B)
+**Penting:** di Vercel, file database bersifat **sementara** (hilang saat deploy ulang / server tidur). Untuk arsip permanen penelitian: unduh CSV/Bank Data berkala dari `/admin` ke folder `bank-data/`, atau pakai Pilihan A untuk data permanen.
 
-- Status “Gagal terkirim, periksa internet”: alamat server salah / server mati / HP siswa tidak se-jaringan dengan server (pakai WiFi yang sama bila server lokal).
-- Nilai masuk tapi rekap kosong: pastikan melihat rekap di **server** (`/admin`), bukan di Vercel.
-- Halaman admin (`/admin`) selalu dibuka dari **alamat server**, bukan alamat Vercel.
+## Cek bila gagal
+
+- Masih not-found setelah deploy: pastikan file `vercel.json`, `api/index.py`, dan `requirements.txt` ikut ter-upload → Redeploy di dashboard Vercel.
+- Status “Gagal terkirim, periksa internet” (Pilihan B lama dengan server terpisah): alamat server salah / server mati / HP tidak se-jaringan (pakai WiFi yang sama bila server lokal).
+- Halaman admin (`/admin`) selalu dibuka dari **alamat yang sama dengan webnya**.
 
 ## Catatan arsip
 

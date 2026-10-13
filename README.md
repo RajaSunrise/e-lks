@@ -21,6 +21,8 @@ Folder `backend/` berisi server siap jalan: halaman E-LKS + penerima nilai + **H
 2. Siswa buka `http://alamat-komputer:8000`, guru buka `http://alamat-komputer:8000/admin` (masuk: `admin` / `guru123` — wajib diganti lewat `ADMIN_USER`/`ADMIN_PASS`).
 3. Data tersimpan di **1 file `backend/data/rekap.sqlite`** — salin sebagai arsip per kelas.
 
+Mau tayang di internet (Vercel)? Ikuti `deploy.md` — file `api/index.py` + `vercel.json` sudah disiapkan sehingga FastAPI tampil penuh di sana.
+
 Bila web dibuka lewat server ini, nilai otomatis terkirim ke sana (tanpa mengatur tabel guru). Detail: `backend/README.md`.
 
 ## Agar nilai SEMUA siswa terkumpul bila TETAP di GitHub Pages (wajib diatur guru 1x)
