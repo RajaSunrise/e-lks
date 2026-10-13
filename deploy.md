@@ -12,7 +12,12 @@ Panduan ini untuk guru/teknisi. Ada 2 pilihan — **Pilihan A disarankan** (pali
 
 Tidak perlu Vercel sama sekali.
 
-1. Salin seluruh folder proyek ke server/komputer sekolah.
+1. Pastikan susunan foldernya utuh seperti ini (jangan hanya menyalin folder `backend/` saja):
+```
+budi-biologi/
+  index.html, css/, js/, assets/
+  backend/   <- main.py, admin.html di sini
+```
 2. `cd backend` → `pip install -r requirements.txt` → `uvicorn main:app --host 0.0.0.0 --port 8000`
 3. Siswa buka `http://alamat-server:8000`, guru buka `http://alamat-server:8000/admin`.
 4. Selesai — nilai otomatis masuk ke `backend/data/rekap.sqlite`.

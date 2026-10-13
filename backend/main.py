@@ -57,6 +57,11 @@ def _init():
 
 _init()
 
+print("E-LKS Backend jalan.")
+print("Folder backend :", BASE)
+print("Folder depan   :", DEPAN, ("(index.html ADA)" if (DEPAN / "index.html").is_file() else "(index.html TAK ADA!)"))
+print("File database  :", DB_PATH)
+
 app = FastAPI(title="E-LKS Backend", docs_url=None, redoc_url=None)
 app.add_middleware(SessionMiddleware, secret_key=SECRET)
 # Izin akses dari depan yang di-hosting terpisah (mis. Vercel). Kirim nilai tak butuh cookie.
@@ -142,8 +147,12 @@ async def akar():
         return FileResponse(idx)
     return PlainTextResponse(
         "File halaman depan (index.html) tidak ditemukan.\n"
-        "Pastikan folder backend/ berada di dalam folder proyek E-LKS "
-        "(sejajar dengan index.html, css/, js/).",
+        f"Folder yang diperiksa: {DEPAN}\n"
+        "Pastikan susunannya seperti ini:\n"
+        "  budi-biologi/  <- folder proyek\n"
+        "    index.html, css/, js/, assets/\n"
+        "    backend/     <- main.py di sini\n"
+        "Lalu jalankan dari dalam folder backend/:  uvicorn main:app --host 0.0.0.0 --port 8000",
         status_code=404,
     )
 
