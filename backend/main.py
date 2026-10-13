@@ -134,5 +134,19 @@ async def halaman_admin():
     return FileResponse(BASE / "admin.html")
 
 
+@app.get("/", include_in_schema=False)
+async def akar():
+    """Halaman utama = halaman E-LKS (materi). Rute eksplisit agar tak pernah not-found."""
+    idx = DEPAN / "index.html"
+    if idx.is_file():
+        return FileResponse(idx)
+    return PlainTextResponse(
+        "File halaman depan (index.html) tidak ditemukan.\n"
+        "Pastikan folder backend/ berada di dalam folder proyek E-LKS "
+        "(sejajar dengan index.html, css/, js/).",
+        status_code=404,
+    )
+
+
 # Halaman depan (index.html dkk) disajikan terakhir agar /api/* tetap menang.
 app.mount("/", StaticFiles(directory=str(DEPAN), html=True), name="depan")

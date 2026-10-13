@@ -29,6 +29,7 @@ Tidak perlu Vercel sama sekali.
 ## Cek bila gagal
 
 - Masih not-found setelah deploy: pastikan file `vercel.json`, `api/index.py`, dan `requirements.txt` ikut ter-upload → Redeploy di dashboard Vercel.
+- Not-found di server sendiri: pastikan perintah dijalankan **dari dalam folder `backend/`** (`cd backend` dulu) dan file `index.html` ada di folder proyek sejajar `backend/`. Bila tetap hilang, halaman utama kini menampilkan pesan penyebabnya, bukan not-found kosong.
 - Status “Gagal terkirim, periksa internet” (Pilihan B lama dengan server terpisah): alamat server salah / server mati / HP tidak se-jaringan (pakai WiFi yang sama bila server lokal).
 - Halaman admin (`/admin`) selalu dibuka dari **alamat yang sama dengan webnya**.
 
