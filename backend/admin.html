@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halaman Admin - E-LKS Kehati</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;background:#f2f9f3;color:#1c2420;line-height:1.6}
+  .bungkus{max-width:1100px;margin:0 auto;padding:1rem}
+  header{background:#0e2f21;color:#fff;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  header a{color:#facc15;text-decoration:none;font-weight:700}
+  .kartu{background:#fff;border:1px solid #d9e8dd;border-radius:14px;padding:1.1rem;margin:1rem 0;box-shadow:0 8px 28px rgba(14,47,33,.10)}
+  h2{color:#166534;margin:.1rem 0 .6rem}
+  label{display:block;font-weight:700;margin:.5rem 0 .2rem}
+  input{width:100%;padding:.6rem .7rem;border:1.5px solid #d9e8dd;border-radius:10px;font-size:1rem}
+  .btn{display:inline-block;border:0;cursor:pointer;padding:.6rem 1.1rem;border-radius:10px;font-weight:800;font-size:.95rem;text-decoration:none;margin:.25rem .25rem .25rem 0}
+  .utama{background:linear-gradient(135deg,#facc15,#fb923c);color:#222}
+  .kedua{background:#166534;color:#fff}
+  .peringatan{color:#b91c1c;font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.6rem 0}
+  th,td{border:1px solid #d9e8dd;padding:.4rem .5rem;text-align:left}
+  th{background:#0e2f21;color:#fff}
+  tr:nth-child(even) td{background:#f2f9f3}
+  .gulir{overflow:auto}
+  .angka{font-size:2rem;font-weight:900;color:#166534;margin:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem}
+  .kotak{background:#f2f9f3;border-radius:10px;padding:.6rem;text-align:center}
+  @media print{
+    header,.no-cetak{display:none !important}
+    body{background:#fff}
+    .kartu{box-shadow:none}
+    .bungkus{max-width:100%}
+  }
+</style>
+</head>
+<body>
+<header>
+  <b>🌿 Halaman Admin - E-LKS Kehati</b>
+  <span><a href="/">← Kembali ke E-LKS</a></span>
+</header>
+<div class="bungkus">
+
+  <div class="kartu" id="kotak-masuk">
+    <h2>🔐 Masuk Admin (Guru)</h2>
+    <p>Minta nama pengguna & kata sandi ke guru penanggung jawab.</p>
+    <label>Nama pengguna</label>
+    <input type="text" id="pengguna" placeholder="cth: admin" autocomplete="username">
+    <label>Kata sandi</label>
+    <input type="password" id="sandi" placeholder="••••••••" autocomplete="current-password">
+    <p><button class="btn utama" onclick="masuk()">Masuk</button></p>
+    <p class="peringatan" id="salah"></p>
+  </div>
+
+  <div class="kartu" id="kotak-rekap" style="display:none">
+    <h2>📊 Rekap Nilai Semua Siswa</h2>
+    <div class="grid" id="ringkas"></div>
+    <div class="no-cetak" style="margin:.6rem 0">
+      <label>Cari / saring (nama atau kelas)</label>
+      <input type="text" id="saring" placeholder="cth: X-1 atau Ani" oninput="gambar()">
+      <div style="margin-top:.6rem">
+        <button class="btn kedua" onclick="muat()">⟳ Muat Ulang</button>
+        <button class="btn kedua" onclick="unduh()">⬇ Unduh CSV</button>
+        <button class="btn utama" onclick="window.print()">🖨 Cetak / PDF</button>
+        <button class="btn kedua" onclick="keluar()">Keluar</button>
+      </div>
+    </div>
+    <div class="gulir"><table>
+      <thead><tr><th>No</th><th>Nama</th><th>Kelas</th><th>E1</th><th>E2</th><th>E3</th><th>E4</th><th>PG</th><th>Isian</th><th>Uraian</th><th>Total</th><th>Predikat</th><th>Waktu</th></tr></thead>
+      <tbody id="badan"></tbody>
+    </table></div>
+    <p id="info-cetak">Dokumen ini bisa dicetak / disimpan sebagai PDF lewat tombol di atas, lalu ditandatangani.</p>
+  </div>
+
+</div>
+<script>
+let data = [];
+async function masuk(){
+  document.getElementById("salah").textContent = "";
+  const r = await fetch("/api/login", {method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({pengguna: document.getElementById("pengguna").value, sandi: document.getElementById("sandi").value})});
+  if(r.ok){ document.getElementById("kotak-masuk").style.display = "none"; document.getElementById("kotak-rekap").style.display = ""; muat(); }
+  else document.getElementById("salah").textContent = "Nama pengguna atau kata sandi salah.";
+}
+async function keluar(){
+  await fetch("/api/logout", {method:"POST"});
+  location.reload();
+}
+async function muat(){
+  const r = await fetch("/api/rekap");
+  if(r.status === 401){ document.getElementById("kotak-rekap").style.display = "none"; document.getElementById("kotak-masuk").style.display = ""; return; }
+  const j = await r.json();
+  data = j.rows || [];
+  gambar();
+}
+function gambar(){
+  const q = (document.getElementById("saring").value || "").toLowerCase();
+  const tampil = data.filter(x => ((x.nama||"") + " " + (x.kelas||"")).toLowerCase().includes(q));
+  const rata = tampil.length ? (tampil.reduce((s,x) => s + (+x.total || 0), 0) / tampil.length) : 0;
+  const tuntas = tampil.filter(x => (+x.total || 0) >= 75).length;
+  document.getElementById("ringkas").innerHTML =
+    `<div class="kotak"><p class="angka">${tampil.length}</p>Siswa</div>` +
+    `<div class="kotak"><p class="angka">${rata.toFixed(1)}</p>Rata-rata</div>` +
+    `<div class="kotak"><p class="angka">${tuntas}</p>Tuntas (≥75)</div>` +
+    `<div class="kotak"><p class="angka">${tampil.length - tuntas}</p>Belum tuntas</div>`;
+  document.getElementById("badan").innerHTML = tampil.map((x, i) =>
+    `<tr><td>${i+1}</td><td>${aman(x.nama)}</td><td>${aman(x.kelas)}</td><td>${x.e1}</td><td>${x.e2}</td><td>${x.e3}</td><td>${x.e4}</td><td>${x.pg}</td><td>${x.isian}</td><td>${x.uraian}</td><td><b>${x.total}</b></td><td>${aman(x.predikat)}</td><td>${aman((x.dibuat||"").slice(0,16).replace("T"," "))}</td></tr>`
+  ).join("") || `<tr><td colspan="13">Belum ada nilai masuk.</td></tr>`;
+}
+function unduh(){ window.location = "/api/rekap?format=csv"; }
+function aman(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+document.getElementById("sandi").addEventListener("keydown", e => { if(e.key === "Enter") masuk(); });
+muat();
+</script>
+</body>
+</html>
