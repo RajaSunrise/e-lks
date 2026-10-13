@@ -4,23 +4,21 @@ Panduan ini untuk guru/teknisi. Ada 2 pilihan — **Pilihan A disarankan** (pali
 
 ## Penting dipahami dulu
 
-- **Vercel hanya bisa menampung halaman depannya** (tampilan E-LKS).
-- **Server FastAPI + file SQLite harus tetap jalan di server** (komputer sekolah/VPS), karena Vercel menghapus file setiap selesai request sehingga nilai akan hilang bila disimpan di sana.
-- Kabar baiknya: kode sudah disiapkan agar keduanya tersambung otomatis.
+- **Vercel bisa menampung semuanya sekaligus** (halaman + server + database sementara) lewat `api/index.py` — cocok untuk demo.
+- **Untuk arsip permanen penelitian**, jalankan server di komputer sekolah/VPS karena Vercel menghapus isi database setiap deploy ulang.
 
 ## Pilihan A (disarankan): semua di 1 server
 
 Tidak perlu Vercel sama sekali.
 
-1. Pastikan susunan foldernya utuh seperti ini (jangan hanya menyalin folder `backend/` saja):
+1. Pastikan susunan foldernya utuh seperti ini:
 ```
 budi-biologi/
-  index.html, css/, js/, assets/
-  backend/   <- main.py, admin.html di sini
+  templates/index.html, static/, app/, api/, data/
 ```
-2. `cd backend` → `pip install -r requirements.txt` → `uvicorn main:app --host 0.0.0.0 --port 8000`
+2. `pip install -r requirements.txt` → `uvicorn app.main:app --host 0.0.0.0 --port 8000` (dari folder proyek)
 3. Siswa buka `http://alamat-server:8000`, guru buka `http://alamat-server:8000/admin`.
-4. Selesai — nilai otomatis masuk ke `backend/data/rekap.sqlite`.
+4. Selesai — nilai otomatis masuk ke `data/rekap.sqlite`.
 
 ## Pilihan B: fullstack di Vercel (halaman + server jadi satu)
 
@@ -34,10 +32,10 @@ budi-biologi/
 ## Cek bila gagal
 
 - Masih not-found setelah deploy: pastikan file `vercel.json`, `api/index.py`, dan `requirements.txt` ikut ter-upload → Redeploy di dashboard Vercel.
-- Not-found di server sendiri: pastikan perintah dijalankan **dari dalam folder `backend/`** (`cd backend` dulu) dan file `index.html` ada di folder proyek sejajar `backend/`. Bila tetap hilang, halaman utama kini menampilkan pesan penyebabnya, bukan not-found kosong.
+- Not-found di server sendiri: pastikan perintah dijalankan **dari folder proyek** dan file `index.html` ada di `templates/`. Bila tetap hilang, halaman utama kini menampilkan pesan penyebabnya, bukan not-found kosong.
 - Status “Gagal terkirim, periksa internet” (Pilihan B lama dengan server terpisah): alamat server salah / server mati / HP tidak se-jaringan (pakai WiFi yang sama bila server lokal).
 - Halaman admin (`/admin`) selalu dibuka dari **alamat yang sama dengan webnya**.
 
 ## Catatan arsip
 
-Salin file `backend/data/rekap.sqlite` berkala (mis. per kelas) ke folder `bank-data/` sebagai arsip penelitian.
+Salin file `data/rekap.sqlite` berkala (mis. per kelas) ke folder `bank-data/` sebagai arsip penelitian.

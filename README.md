@@ -15,15 +15,15 @@ Rancangan tiap E-LKS (masalah + pertanyaan pemandu) ada di halaman **Rancangan**
 
 ## Backend server sendiri (FastAPI + file SQLite + login admin) — disarankan
 
-Folder `backend/` berisi server siap jalan: halaman E-LKS + penerima nilai + **Halaman Admin** (masuk → rekap semua siswa + rata-rata + saring + **cetak/PDF** + unduh + keluar).
+Struktur: `app/` (server: `main.py`, `database.py`, `auth.py`), `api/` (pintu Vercel), `static/` (tampilan), `templates/` (halaman).
 
-1. `cd backend` → `pip install -r requirements.txt` → `uvicorn main:app --host 0.0.0.0 --port 8000`
+1. `pip install -r requirements.txt` → `uvicorn app.main:app --host 0.0.0.0 --port 8000` (dari folder proyek)
 2. Siswa buka `http://alamat-komputer:8000`, guru buka `http://alamat-komputer:8000/admin` (masuk: `admin` / `guru123` — wajib diganti lewat `ADMIN_USER`/`ADMIN_PASS`).
-3. Data tersimpan di **1 file `backend/data/rekap.sqlite`** — salin sebagai arsip per kelas.
+3. Data tersimpan di **1 file `data/rekap.sqlite`** — salin sebagai arsip per kelas.
 
 Mau tayang di internet (Vercel)? Ikuti `deploy.md` — file `api/index.py` + `vercel.json` sudah disiapkan sehingga FastAPI tampil penuh di sana.
 
-Bila web dibuka lewat server ini, nilai otomatis terkirim ke sana (tanpa mengatur tabel guru). Detail: `backend/README.md`.
+Bila web dibuka lewat server ini, nilai otomatis terkirim ke sana (tanpa mengatur tabel guru). Detail: `deploy.md`.
 
 ## Agar nilai SEMUA siswa terkumpul bila TETAP di GitHub Pages (wajib diatur guru 1x)
 
@@ -48,7 +48,7 @@ Siswa tidak perlu mengatur apa pun. Tiap siswa yang menekan “Hitung Nilai & Si
 
 ## Cara kerja rekap otomatis (fullstack FastAPI - tanpa layanan lain)
 
-Satu-satunya backend adalah folder `backend/` (FastAPI + file SQLite). Bila web dibuka lewat server itu, tiap “Hitung Nilai & Simpan” otomatis masuk ke `backend/data/rekap.sqlite` — tanpa layanan lain apa pun. Bila dibuka di GitHub Pages (tanpa server), website otomatis memakai cara tabel guru di bawah. Menyalakan server cukup sekali (lihat “Backend server sendiri” di atas).
+Satu-satunya backend adalah folder `app/` (FastAPI + file SQLite). Bila web dibuka lewat server itu, tiap “Hitung Nilai & Simpan” otomatis masuk ke `data/rekap.sqlite` — tanpa layanan lain apa pun. Bila dibuka di GitHub Pages (tanpa server), website otomatis memakai cara tabel guru di bawah. Menyalakan server cukup sekali (lihat “Backend server sendiri” di atas).
 
 ## Untuk guru/peneliti
 - Bobot: E-LKS 1–4 masing-masing 10, Kuis 40, Isian 10, Uraian 10 (total 100, KKM 75).

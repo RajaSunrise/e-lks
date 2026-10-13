@@ -1543,8 +1543,8 @@
 				<p class="keterangan" id="rekap-online-status"></p>
 				<details class="baca"><summary>👩‍🏫 Cara guru menyalakan server (1x saja)</summary>
 					<ol>
-						<li>Di komputer sekolah: buka folder <b>backend</b> → pasang sekali: <b>pip install -r requirements.txt</b> → jalankan: <b>uvicorn main:app --host 0.0.0.0 --port 8000</b>.</li>
-						<li>Tabel nilai dibuat otomatis di file <b>backend/data/rekap.sqlite</b> begitu nilai pertama masuk.</li>
+						<li>Di komputer sekolah: dari folder proyek → pasang sekali: <b>pip install -r requirements.txt</b> → jalankan: <b>uvicorn app.main:app --host 0.0.0.0 --port 8000</b>.</li>
+						<li>Tabel nilai dibuat otomatis di file <b>data/rekap.sqlite</b> begitu nilai pertama masuk.</li>
 						<li>Atur kata sandi lewat environment bila perlu (<b>ADMIN_USER</b>, <b>ADMIN_PASS</b>, <b>REKAP_KEY</b>). Bawaan: admin / guru123.</li>
 						<li>Siswa membuka <b>http://alamat-komputer:8000</b>, guru membuka <b>.../admin</b> untuk rekap + cetak. Setiap “Hitung Nilai & Simpan” otomatis masuk.</li>
 					</ol>
