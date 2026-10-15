@@ -186,13 +186,17 @@ details.baca[open]{background:var(--kartu)}
 @media(max-width:480px){.ilust-grid-3{grid-template-columns:1fr 1fr 1fr}.ilust-kartu span{font-size:.68rem}}
 .ilust-kartu{background:#eef4e3;border-radius:12px;padding:.7rem .5rem;text-align:center;border:1px solid #d9e8dd}
 [data-theme="dark"] .ilust-kartu{background:#16281c}
-.ilust-emoji{font-size:1.7rem;letter-spacing:.1rem;line-height:1.4}
+.ilust-fotos{display:flex;gap:.3rem;justify-content:center;margin-bottom:.35rem}
+.ilust-foto{width:100%;max-width:90px;height:58px;object-fit:cover;border-radius:8px;border:1px solid #d9e8dd;cursor:zoom-in;background:#dfeee2;transition:.2s}
+.ilust-grid-3 .ilust-foto{max-width:72px;height:54px}
+.ilust-foto:hover{transform:scale(1.05)}
 .ilust-kartu b{display:block;margin-top:.25rem;font-size:.95rem}
 .ilust-kartu span{display:block;font-size:.78rem;color:var(--abu);line-height:1.4;margin-top:.15rem}
 .baris-cocok{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;align-items:center;margin:.45rem 0}
 @media(max-width:560px){.baris-cocok{grid-template-columns:1fr 1.2fr}}
 .label-hijau{background:#2e7d32;color:#fff;font-weight:800;border-radius:999px;padding:.55rem 1rem;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .baris-cocok select{margin-top:0;background:#fff}
+[data-theme="dark"] .baris-cocok select{background:#122019;color:#e8f1ea}
 .btn-kuning{background:#eab308;color:#3f3003;box-shadow:0 4px 14px #eab30855}
 .btn-kuning:hover{filter:brightness(1.05);transform:translateY(-2px)}
 @media print{

@@ -94,7 +94,7 @@ teks("RAHASIA GURU/PENELITI - jangan disebar ke siswa", merah=True)
 
 tabel([
     ["Komponen", "Bobot", "Keterangan"],
-    ["E-LKS 1 (tingkat, persebaran, manfaat)", "10", "Q1=2, Q2=4, Q3=2, Q4=2"],
+    ["E-LKS 1 (identifikasi & manfaat)", "10", "identifikasi=2, alasan+definisi=4, manfaat=2, contoh+kesimpulan=2"],
     ["E-LKS 2 (faktor hilang)", "10", "Kasus+bukti=4, dampak=2, tunggal/asumsi=2, tindak=2"],
     ["E-LKS 3 (pelestarian)", "10", "Ancaman=2, banding=3, solusi=2, alasan=1, peran=2"],
     ["E-LKS 4 (klasifikasi)", "10", "Ciri=2, dikotomi=3, kingdom=3, takson=2"],
@@ -104,14 +104,14 @@ tabel([
     ["TOTAL", "100", "KKM 75"],
 ])
 
-h1("E-LKS 1 - Tingkat, Persebaran, Manfaat (Pertemuan 2)")
-teks("Semua soal berbasis HOTS: memilih rumusan masalah, menganalisis fakta, menilai argumen, & memprediksi.", kecil=True)
+h1("E-LKS 1 - Kegiatan 1: Identifikasi & Manfaat (Pertemuan 2)")
+teks("Format mirip LKPD cetak: identifikasi 3 gambar + alasan, manfaat 4 contoh + contoh lain, diskusi + kesimpulan.", kecil=True)
 tabel([
-    ["No", "Pertanyaan (HOTS)", "Kunci (bobot)", "Pembahasan"],
-    ["1", "Rumusan masalah paling tepat: pasar banyak varietas vs petani menanam 1 varietas", "B (2)", "Opsi B - alasan varietas lokal penting bagi kehati + risiko/kerentanan bila hanya menanam satu varietas (monokultur)."],
-    ["2", "Analisis 3 fakta: tentukan tingkat kehati + dasar pembeda; mengapa penting bagi petani", "Rubrik (4)", "Kata gen+jenis+ekosistem (2); alasan pentingnya variasi: varietas/hama/cadangan/plasma nutfah (1); jawaban >60 huruf (1)."],
-    ["3", "Penilaian 2 argumen penyebab beda fauna (Rani vs Ayi)", "C (2)", "Opsi C - argumen Ayi didukung bukti (kedalaman selat + pola sebaran hewan); argumen tanpa bukti lemah."],
-    ["4", "Simpulkan pola sebaran (mamalia vs burung/ikan) + prediksi hewan darat", "Rubrik (2)", "Alasan kemampuan gerak/tak bisa menyeberang (1); konsep garis Wallace/selat dalam/zaman es (1)."],
+    ["No", "Pertanyaan", "Kunci (bobot)", "Pembahasan"],
+    ["1", "Identifikasi tingkat Gambar 1-3", "3 benar=2, 2 benar=1", "Gbr 1 = gen; Gbr 2 = jenis; Gbr 3 = ekosistem."],
+    ["2", "Alasan ciri tiap gambar + definisi kehati", "Rubrik (4)", "Alasan maks 2; definisi maks 2."],
+    ["3", "Manfaat: sayuran, kapas, ternak, bambu", "4 benar=2, 2-3 benar=1", "Sayuran = pangan; kapas = sandang; ternak = pangan; bambu = papan."],
+    ["4", "Contoh lain + kesimpulan", "Rubrik (2)", "Contoh + manfaat >15 huruf (1); kesimpulan >20 huruf (1)."],
 ])
 
 h1("E-LKS 2 - Faktor Hilangnya Kehati (Pertemuan 3)")

@@ -304,9 +304,8 @@ function nilaiE1() {
 }
 function periksaE1() {
   const r = nilaiE1();
-  const kunci = "Kunci: Gambar 1 = tingkat gen, Gambar 2 = tingkat jenis, Gambar 3 = tingkat ekosistem. Manfaat: Sayuran = bahan makanan, Kapas = bahan pakaian, Kambing & sapi = bahan makanan, Bambu = bahan bangunan.";
   document.getElementById("e1-feedback").innerHTML =
-    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : kunci + " Lengkapi alasan tiap gambar + contoh + kesimpulan."}`;
+    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : "Lengkapi: pilih tingkat tiap gambar + tulis ciri pembedanya, pilih manfaat tiap contoh + contoh lain, lalu tulis definisi & kesimpulan."}`;
   if (r.skor >= 8) tambahXP(5, "e1-bagus");
 }
 /* ---------- E-LKS 2: faktor hilangnya kehati (bobot 10) ---------- */
