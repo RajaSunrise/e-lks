@@ -7,7 +7,7 @@ Beranda (4 kartu E-LKS bergambar) → Identitas → Rancangan → E-LKS 1 (mater
 
 Rancangan tiap E-LKS (masalah + pertanyaan pemandu) ada di halaman **Rancangan** website.
 
-Setiap pertemuan diawali **🎯 Tujuan Pembelajaran yang berorientasi berpikir kritis** — tampil di bawah judul tiap halaman materi E-LKS 1–4 dan diringkas di kartu beranda. Tanya jawab tugas E-LKS 1 diberi label aspek berpikir kritis (interpretasi/evaluasi/inferensi).
+Setiap pertemuan diawali **🎯 Tujuan Pembelajaran yang berorientasi berpikir kritis** — tampil di bawah judul tiap halaman materi E-LKS 1–4 dan diringkas di kartu beranda. Tanya jawab tugas E-LKS 1 memakai **soal HOTS** (memilih rumusan masalah, analisis fakta, penilaian argumen, & prediksi) dengan label aspek berpikir kritis (interpretasi/evaluasi/inferensi).
 
 ## Untuk siswa
 1. Isi nama & kelas, ikuti tahap berurutan.

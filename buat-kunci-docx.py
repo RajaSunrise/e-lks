@@ -105,12 +105,13 @@ tabel([
 ])
 
 h1("E-LKS 1 - Tingkat, Persebaran, Manfaat (Pertemuan 2)")
+teks("Semua soal berbasis HOTS: memilih rumusan masalah, menganalisis fakta, menilai argumen, & memprediksi.", kecil=True)
 tabel([
-    ["No", "Pertanyaan", "Kunci (bobot)", "Pembahasan"],
-    ["1", "Inti permasalahan wacana Lombok-Bali?", "B (2)", "Inti: mengapa fauna Lombok-Bali berbeda + penyebab serta manfaat kehati."],
-    ["2", "Contoh gen, jenis, ekosistem + dasar beda", "Rubrik (4)", "Kata gen+jenis+ekosistem (2); contoh benar mis. padi/komodo/hutan (1); jawaban >60 huruf (1)."],
-    ["3", "Sumber paling dipercaya?", "C (2)", "Jurnal/buku teks/peneliti - berbasis data dan telaah ahli."],
-    ["4", "Simpulkan penyebab beda persebaran", "Rubrik (2)", "Garis Wallace/selat/Lombok-Bali (1); iklim/geografi/tanah/adaptasi (1)."],
+    ["No", "Pertanyaan (HOTS)", "Kunci (bobot)", "Pembahasan"],
+    ["1", "Rumusan masalah paling tepat: pasar banyak varietas vs petani menanam 1 varietas", "B (2)", "Opsi B - alasan varietas lokal penting bagi kehati + risiko/kerentanan bila hanya menanam satu varietas (monokultur)."],
+    ["2", "Analisis 3 fakta: tentukan tingkat kehati + dasar pembeda; mengapa penting bagi petani", "Rubrik (4)", "Kata gen+jenis+ekosistem (2); alasan pentingnya variasi: varietas/hama/cadangan/plasma nutfah (1); jawaban >60 huruf (1)."],
+    ["3", "Penilaian 2 argumen penyebab beda fauna (Rani vs Ayi)", "C (2)", "Opsi C - argumen Ayi didukung bukti (kedalaman selat + pola sebaran hewan); argumen tanpa bukti lemah."],
+    ["4", "Simpulkan pola sebaran (mamalia vs burung/ikan) + prediksi hewan darat", "Rubrik (2)", "Alasan kemampuan gerak/tak bisa menyeberang (1); konsep garis Wallace/selat dalam/zaman es (1)."],
 ])
 
 h1("E-LKS 2 - Faktor Hilangnya Kehati (Pertemuan 3)")

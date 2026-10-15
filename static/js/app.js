@@ -261,19 +261,19 @@ function nilaiE1() {
   const l2 = g("e1q2").toLowerCase();
   let s2 = 0;
   if (/gen/.test(l2) && /jenis/.test(l2) && /ekosistem/.test(l2)) s2 += 2;
-  if (/(mawar|padi|mangga|komodo|biawak|hutan|karang|sawah|anggrek|orangutan|bekantan|durian)/.test(l2)) s2 += 1;
+  if (/(varietas|hama|serang|tahan|penyakit|cadangan|plasma|nutfah|punah|adaptasi)/.test(l2)) s2 += 1;
   if (g("e1q2").trim().length > 60) s2 += 1;
   const s3 = q3 === "C" ? 2 : 0;
   const l4 = g("e1q4").toLowerCase();
   let s4 = 0;
-  if (/(wallace|garis|pemisah|selat|lombok|bali)/.test(l4)) s4 += 1;
-  if (/(iklim|geograf|tanah|adaptasi|evolusi|daerah|laut|gunung)/.test(l4)) s4 += 1;
+  if (/(terbang|berenang|menyeberang|alat gerak|bergerak|tidak bisa|tak bisa)/.test(l4)) s4 += 1;
+  if (/(wallace|selat|dalam|palung|zaman es|sunda|laut|paparan)/.test(l4)) s4 += 1;
   return { skor: s1 + s2 + s3 + s4, detail: { q1, q3, q2: g("e1q2"), q4: g("e1q4"), sub: { q1: s1, q2: s2, q3: s3, q4: s4 } } };
 }
 function periksaE1() {
   const r = nilaiE1();
   document.getElementById("e1-feedback").innerHTML =
-    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : "Lengkapi: sebut gen–jenis–ekosistem + contoh + garis Wallace."}`;
+    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : "Lengkapi: analisis tiap fakta (gen–jenis–ekosistem + alasan), nilai kualitas argumen, lalu simpulkan pola + prediksi (HOTS)."}`;
   if (r.skor >= 8) tambahXP(5, "e1-bagus");
 }
 /* ---------- E-LKS 2: faktor hilangnya kehati (bobot 10) ---------- */
