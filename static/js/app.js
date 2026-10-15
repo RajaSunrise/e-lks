@@ -252,28 +252,61 @@ function identitas() {
   return { nama: v("nama"), kelas: v("kelas"), absen: v("absen"), sekolah: v("sekolah"), tanggal: v("tgl"), mulai: mulaiWaktu };
 }
 
-/* ---------- E-LKS 1: tingkat, persebaran, manfaat (bobot 10) ---------- */
+/* ---------- E-LKS 1: identifikasi tingkat + manfaat + diskusi (bobot 10) ----------
+   Kunci: G1=gen (mawar satu spesies beda warna), G2=jenis (3 spesies),
+   G3=ekosistem (3 habitat). Manfaat: sayur=pangan, kapas=sandang,
+   ternak=pangan, bambu=papan. Sub q1-q4 dipertahankan agar profil
+   berpikir kritis tidak berubah (maks 2+4+2+2=10). */
 function nilaiE1() {
-  const g = id => ((document.getElementById(id) || { value: "" }).value);
-  const q1 = document.querySelector('input[name="e1q1"]:checked')?.value || "-";
-  const q3 = document.querySelector('input[name="e1q3"]:checked')?.value || "-";
-  const s1 = q1 === "B" ? 2 : 0;
-  const l2 = g("e1q2").toLowerCase();
-  let s2 = 0;
-  if (/gen/.test(l2) && /jenis/.test(l2) && /ekosistem/.test(l2)) s2 += 2;
-  if (/(varietas|hama|serang|tahan|penyakit|cadangan|plasma|nutfah|punah|adaptasi)/.test(l2)) s2 += 1;
-  if (g("e1q2").trim().length > 60) s2 += 1;
-  const s3 = q3 === "C" ? 2 : 0;
-  const l4 = g("e1q4").toLowerCase();
-  let s4 = 0;
-  if (/(terbang|berenang|menyeberang|alat gerak|bergerak|tidak bisa|tak bisa)/.test(l4)) s4 += 1;
-  if (/(wallace|selat|dalam|palung|zaman es|sunda|laut|paparan)/.test(l4)) s4 += 1;
-  return { skor: s1 + s2 + s3 + s4, detail: { q1, q3, q2: g("e1q2"), q4: g("e1q4"), sub: { q1: s1, q2: s2, q3: s3, q4: s4 } } };
+  const g = id => ((document.getElementById(id) || { value: "" }).value || "").trim();
+  const gl = id => g(id).toLowerCase();
+  const g1 = gl("e1g1"), g2 = gl("e1g2"), g3 = gl("e1g3");
+  const benarTingkat = (g1 === "gen" ? 1 : 0) + (g2 === "jenis" ? 1 : 0) + (g3 === "ekosistem" ? 1 : 0);
+  const s1 = benarTingkat === 3 ? 2 : benarTingkat === 2 ? 1 : 0;
+  // q2: alasan (0-2) + definisi kehati (0-2)
+  const alasan = gl("e1alasan");
+  let sAlasan = 0;
+  const ciriGen = /(satu spesies|satu jenis|varietas|warna|bentuk|sifat|gen)/.test(alasan);
+  const ciriJenis = /(spesies berbeda|jenis berbeda|tiga spesies|beda spesies|harimau.*singa|singa.*harimau|macan)/.test(alasan);
+  const ciriEko = /(habitat|lingkungan|ekosistem|tempat hidup|sawah.*gurun|gurun.*laut|kondisi)/.test(alasan);
+  sAlasan = (ciriGen ? 1 : 0) + (ciriJenis ? 1 : 0) + (ciriEko ? 1 : 0);
+  sAlasan = Math.min(sAlasan, 2);
+  if (g("e1alasan").trim().length < 15) sAlasan = 0;
+  else if (g("e1alasan").trim().length > 60 && sAlasan === 1) sAlasan = 2;
+  const definisi = gl("e1definisi");
+  let sDef = 0;
+  if (/(variasi|perbedaan|berbagai|bermacam|aneka)/.test(definisi)) sDef += 1;
+  if (/gen/.test(definisi) && /jenis/.test(definisi)) sDef += 1;
+  if (/ekosistem/.test(definisi)) sDef += 1;
+  sDef = Math.min(sDef, 2);
+  if (g("e1definisi").trim().length < 15) sDef = 0;
+  const s2 = Math.min(sAlasan + sDef, 4);
+  // q3: manfaat (0-2)
+  const benarManfaat = (gl("e1m_sayur") === "pangan" ? 1 : 0) + (gl("e1m_kapas") === "sandang" ? 1 : 0) +
+    (gl("e1m_ternak") === "pangan" ? 1 : 0) + (gl("e1m_bambu") === "papan" ? 1 : 0);
+  const s3 = benarManfaat === 4 ? 2 : benarManfaat >= 2 ? 1 : 0;
+  // q4: contoh lain (0-1) + kesimpulan (0-1)
+  const contoh = gl("e1contoh");
+  let sContoh = 0;
+  if (g("e1contoh").trim().length > 15 && /(manfaat|guna|makanan|obat|pakaian|bangunan|pangan|sandang|papan|ekonomi|ekologi)/.test(contoh)) sContoh = 1;
+  const simpulan = g("e1simpulan").trim();
+  const sSimp = simpulan.length > 20 ? 1 : 0;
+  const s4 = sContoh + sSimp;
+  return {
+    skor: s1 + s2 + s3 + s4,
+    detail: {
+      g1: g("e1g1") || "-", g2: g("e1g2") || "-", g3: g("e1g3") || "-", alasan: g("e1alasan"),
+      m_sayur: g("e1m_sayur") || "-", m_kapas: g("e1m_kapas") || "-", m_ternak: g("e1m_ternak") || "-", m_bambu: g("e1m_bambu") || "-",
+      contoh: g("e1contoh"), definisi: g("e1definisi"), simpulan: g("e1simpulan"),
+      sub: { q1: s1, q2: s2, q3: s3, q4: s4 }
+    }
+  };
 }
 function periksaE1() {
   const r = nilaiE1();
+  const kunci = "Kunci: Gambar 1 = tingkat gen, Gambar 2 = tingkat jenis, Gambar 3 = tingkat ekosistem. Manfaat: Sayuran = bahan makanan, Kapas = bahan pakaian, Kambing & sapi = bahan makanan, Bambu = bahan bangunan.";
   document.getElementById("e1-feedback").innerHTML =
-    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : "Lengkapi: analisis tiap fakta (gen–jenis–ekosistem + alasan), nilai kualitas argumen, lalu simpulkan pola + prediksi (HOTS)."}`;
+    `Skor sementara E-LKS 1: <b>${r.skor}/10</b>. ${r.skor >= 8 ? "Luar biasa! 🎉" : kunci + " Lengkapi alasan tiap gambar + contoh + kesimpulan."}`;
   if (r.skor >= 8) tambahXP(5, "e1-bagus");
 }
 /* ---------- E-LKS 2: faktor hilangnya kehati (bobot 10) ---------- */
