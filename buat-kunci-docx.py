@@ -89,9 +89,40 @@ def footer():
 
 judul("KUNCI JAWABAN & RUBRIK PENILAIAN")
 teks("E-LKS 1-4 Keanekaragaman Hayati Berbasis PBL")
-teks("Biologi Kelas X - MAN Lombok Barat - Berpikir Kritis")
+teks("Biologi Kelas X - MAN Lombok Barat - Berpikir Kritis (Ennis)")
 teks("RAHASIA GURU/PENELITI - jangan disebar ke siswa", merah=True)
 
+h1("Indikator Kemampuan Berpikir Kritis (Ennis)")
+tabel([
+    ["No", "Indikator", "Sub-indikator"],
+    ["1", "Memberikan penjelasan sederhana", "Memfokuskan pertanyaan; menganalisis argumen; bertanya dan menjawab pertanyaan klarifikasi"],
+    ["2", "Membangun keterampilan dasar", "Mempertimbangkan kredibilitas suatu sumber; mengobservasi dan mempertimbangkan hasil observasi"],
+    ["3", "Menyimpulkan", "Membuat deduksi dan mempertimbangkan hasil deduksi; membuat induksi dan mempertimbangkan hasil induksi; membuat dan mempertimbangkan nilai keputusan"],
+    ["4", "Memberikan penjelasan lanjut", "Mendefinisikan istilah dan mempertimbangkan suatu definisi; mengidentifikasi asumsi"],
+    ["5", "Mengatur strategi dan taktik", "Menentukan suatu tindakan; berinteraksi dengan orang lain"],
+])
+
+h1("C. Sintaks PBL dan Rancangan e-LKS")
+teks("Sintaks PBL dan peran e-LKS", kecil=True)
+tabel([
+    ["Fase", "Kegiatan", "Peran e-LKS"],
+    ["Fase 1: Orientasi peserta didik pada masalah", "Guru menjelaskan tujuan pembelajaran dan menyajikan masalah kontekstual; peserta didik memfokuskan permasalahan.", "e-LKS menyajikan wacana, gambar, atau video permasalahan."],
+    ["Fase 2: Mengorganisasikan peserta didik untuk belajar", "Guru membentuk kelompok dan membantu peserta didik merumuskan pertanyaan serta membagi tugas.", "e-LKS memuat petunjuk dan ruang perumusan masalah."],
+    ["Fase 3: Membimbing penyelidikan kelompok", "Peserta didik mengumpulkan informasi, mengobservasi, dan mencari penjelasan; guru membimbing.", "e-LKS memuat tautan sumber belajar dan pertanyaan pemandu berpikir kritis."],
+    ["Fase 4: Mengembangkan dan menyajikan hasil karya", "Kelompok menyusun dan mempresentasikan hasil; kelompok lain menanggapi.", "e-LKS memuat kolom jawaban dan hasil karya kelompok."],
+    ["Fase 5: Menganalisis dan mengevaluasi proses pemecahan masalah", "Guru dan peserta didik mengevaluasi proses dan hasil, lalu menarik kesimpulan.", "e-LKS memuat kesimpulan dan refleksi kelompok."],
+])
+
+teks("Rancangan e-LKS per pertemuan", kecil=True)
+tabel([
+    ["e-LKS", "Materi", "Masalah kontekstual", "Contoh pertanyaan pemandu berpikir kritis"],
+    ["e-LKS 1", "Pertemuan 2: tingkat, persebaran, serta fungsi dan manfaat keanekaragaman hayati", "Fauna Pulau Lombok berbeda dengan Pulau Bali walaupun letaknya berdekatan, dan pasar tradisional menjual beragam varietas buah dan padi lokal. Mengapa keanekaragaman hayati Indonesia tinggi dan berbeda antardaerah, serta apa manfaatnya?", "(1) Apa inti permasalahan yang perlu dipecahkan? (2) Sebutkan contoh keanekaragaman gen, jenis, dan ekosistem beserta dasar pembedanya. (3) Sumber mana yang paling dapat dipercaya dan mengapa? (4) Simpulkan penyebab perbedaan persebaran tersebut."],
+    ["e-LKS 2", "Pertemuan 3: faktor penyebab hilangnya keanekaragaman hayati", "Enam kasus penurunan keanekaragaman hayati: alih fungsi lahan mangrove, sampah plastik dan pencemaran, pemutihan terumbu karang, perburuan/penangkapan berlebihan, spesies pendatang, serta pertanian monokultur dan penebangan hutan.", "(1) Faktor apa yang paling berperan pada kasus kelompokmu? Apa buktinya? (2) Apa dampaknya bagi ekosistem dan manusia? (3) Apakah penyebabnya tunggal? Asumsi apa yang kamu gunakan? (4) Tindakan apa yang dapat mencegahnya?"],
+    ["e-LKS 3", "Pertemuan 4: upaya pelestarian keanekaragaman hayati", "Populasi tumbuhan/hewan langka dan ekosistem di sekitar Pulau Lombok terus menurun. Sebagai tim konservasi, tentukan strategi pelestarian (in-situ/ex-situ) yang paling tepat.", "(1) Apa ancaman utama pada jenis/ekosistem tersebut? (2) Bandingkan kelebihan dan keterbatasan konservasi in-situ dan ex-situ. (3) Solusi mana yang kamu pilih dan apa alasannya? (4) Apa peran yang dapat kamu lakukan?"],
+    ["e-LKS 4", "Pertemuan 5: klasifikasi makhluk hidup", "Sejumlah organisme (bakteri, jamur, lumut, paku, tumbuhan berbunga, dan hewan) ditemukan tanpa label. Bagaimana mengelompokkannya ke kingdom yang tepat dan apa dasar pengelompokannya?", "(1) Ciri apa yang dapat dijadikan dasar pengelompokan? (2) Susun kunci determinasi dikotomi sederhana. (3) Ke kingdom mana tiap organisme dikelompokkan dan mengapa? (4) Definisikan istilah takson yang kamu gunakan."],
+])
+
+h1("Bobot Penilaian")
 tabel([
     ["Komponen", "Bobot", "Keterangan"],
     ["E-LKS 1 (identifikasi & manfaat)", "10", "identifikasi=2, alasan+definisi=4, manfaat=2, contoh+kesimpulan=2"],

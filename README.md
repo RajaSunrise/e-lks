@@ -5,7 +5,21 @@ Lembar Kerja Siswa elektronik **per pertemuan (E-LKS 1–4)** untuk belajar deng
 ## Isi website (17 halaman)
 Beranda (4 kartu E-LKS bergambar) → Identitas → Rancangan → E-LKS 1 (materi & tugas) → E-LKS 2 (materi & tugas) → E-LKS 3 (materi & tugas) → E-LKS 4 (materi & tugas) → Kuis → Isian & Uraian → Hasil → **Galeri (18 gambar contoh)** → Halaman Guru → Glosarium.
 
-Rancangan tiap E-LKS (masalah + pertanyaan pemandu) ada di halaman **Rancangan** website.
+Rancangan tiap E-LKS (masalah + pertanyaan pemandu) ada di halaman **Rancangan** website, disusun berdasarkan **Indikator Kemampuan Berpikir Kritis (Ennis)** serta **Sintaks Problem Based Learning (PBL) dan Peran e-LKS**.
+
+### Indikator Kemampuan Berpikir Kritis (Ennis)
+1. **Memberikan penjelasan sederhana**: Memfokuskan pertanyaan; menganalisis argumen; bertanya dan menjawab pertanyaan klarifikasi
+2. **Membangun keterampilan dasar**: Mempertimbangkan kredibilitas suatu sumber; mengobservasi dan mempertimbangkan hasil observasi
+3. **Menyimpulkan**: Membuat deduksi dan mempertimbangkan hasil deduksi; membuat induksi dan mempertimbangkan hasil induksi; membuat dan mempertimbangkan nilai keputusan
+4. **Memberikan penjelasan lanjut**: Mendefinisikan istilah dan mempertimbangkan suatu definisi; mengidentifikasi asumsi
+5. **Mengatur strategi dan taktik**: Menentukan suatu tindakan; berinteraksi dengan orang lain
+
+### Sintaks PBL dan Peran e-LKS
+- **Fase 1: Orientasi peserta didik pada masalah**: Guru menjelaskan tujuan pembelajaran dan menyajikan masalah kontekstual; peserta didik memfokuskan permasalahan. *Peran e-LKS: e-LKS menyajikan wacana, gambar, atau video permasalahan.*
+- **Fase 2: Mengorganisasikan peserta didik untuk belajar**: Guru membentuk kelompok dan membantu peserta didik merumuskan pertanyaan serta membagi tugas. *Peran e-LKS: e-LKS memuat petunjuk dan ruang perumusan masalah.*
+- **Fase 3: Membimbing penyelidikan kelompok**: Peserta didik mengumpulkan informasi, mengobservasi, dan mencari penjelasan; guru membimbing. *Peran e-LKS: e-LKS memuat tautan sumber belajar dan pertanyaan pemandu berpikir kritis.*
+- **Fase 4: Mengembangkan dan menyajikan hasil karya**: Kelompok menyusun dan mempresentasikan hasil; kelompok lain menanggapi. *Peran e-LKS: e-LKS memuat kolom jawaban dan hasil karya kelompok.*
+- **Fase 5: Menganalisis dan mengevaluasi proses pemecahan masalah**: Guru dan peserta didik mengevaluasi proses dan hasil, lalu menarik kesimpulan. *Peran e-LKS: e-LKS memuat kesimpulan dan refleksi kelompok.*
 
 Setiap pertemuan diawali **🎯 Tujuan Pembelajaran yang berorientasi berpikir kritis** — tampil di bawah judul tiap halaman materi E-LKS 1–4 dan diringkas di kartu beranda. Kegiatan 1 E-LKS 1 mirip **LKPD cetak pada contoh gambar**: identifikasi tingkat kehati 3 gambar + alasan, pilihan manfaat 4 contoh + contoh lain, lalu diskusi & kesimpulan (skor otomatis 10).
 
