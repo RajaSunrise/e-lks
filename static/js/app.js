@@ -231,9 +231,9 @@ function cekMini(btn) {
 function pilihZona(z) {
   document.querySelectorAll(".zona-btn").forEach(b => b.classList.toggle("on", b.dataset.zona === z));
   const info = {
-    barat: "<b>Zona Barat (Asiatis)</b> — barat Garis Wallace (Sumatera, Jawa, Kalimantan, <b>Bali</b>): orangutan, harimau sumatera, gajah asia, bekantan. Ciri: mamalia besar mirip Asia daratan.",
-    tengah: "<b>Zona Tengah (Wallacea / Peralihan)</b> — antara Wallace & Weber (<b>Lombok</b>, Sulawesi, Nusa Tenggara, Maluku): rusa, babi hutan, kuskus, maleo, komodo (timur). Ciri: campuran + endemik unik!",
-    timur: "<b>Zona Timur (Australis)</b> — timur Garis Weber (Papua): cendrawasih, kasuari, kanguru pohon, kakatua. Ciri: berkantung & burung warna-warni mirip Australia."
+    barat: "<b>Zona Barat (Asiatis)</b> — terletak di sebelah barat Garis Wallace (Sumatera, Jawa, Kalimantan): didominasi mamalia darat berukuran besar (orangutan, gajah asia, harimau, badak, bekantan).",
+    tengah: "<b>Zona Tengah (Wallacea / Kepulauan Lombok & Peralihan)</b> — antara Garis Wallace & Weber: kawasan transisi khas Pulau Lombok (Pusuk, Suranadi, Rinjani) dengan fauna endemik unik (Lutung Lombok, Celepuk Rinjani, Rusa Timor, kuskus, kakatua). Ciri: perpaduan Asia-Australia tanpa mamalia karnivora besar asli.",
+    timur: "<b>Zona Timur (Australis)</b> — timur Garis Weber (Papua & pulau sekitarnya): satwa berkantung (kanguru pohon, kuskus tutul) & burung berbulu indah (cendrawasih, kasuari)."
   };
   const el = document.getElementById("zona-info");
   if (el) el.innerHTML = info[z];
