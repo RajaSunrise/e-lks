@@ -121,14 +121,6 @@ code.kunci{background:#111827;color:#f9fafb;padding:.15rem .45rem;border-radius:
 /* mini quiz */
 .mini{background:rgba(22,163,74,.06);border:1.5px dashed var(--h600);border-radius:12px;padding:.7rem .85rem;margin:.7rem 0}
 .mini-fb{font-weight:700;margin:.4rem 0 0;min-height:1.4em}
-/* peta */
-.peta{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;align-items:start}
-@media(max-width:820px){.peta{grid-template-columns:1fr}}
-.zona-btns{display:flex;gap:.4rem;flex-wrap:wrap}
-.zona-btn{border:2px solid var(--garis);background:var(--kartu);color:var(--tinta);border-radius:12px;padding:.5rem .8rem;cursor:pointer;font-weight:800}
-.zona-btn.on{border-color:var(--aksen2);background:#fff7ed}
-[data-theme="dark"] .zona-btn.on{background:#241503}
-.zona-kartu{background:var(--h100);border-radius:12px;padding:.8rem}
 /* galeri + lightbox */
 #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:200;padding:1rem}
 #lightbox.buka{display:grid}
